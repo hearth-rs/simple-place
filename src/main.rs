@@ -6,6 +6,8 @@ use winit::event::{Event, WindowEvent};
 use winit::event_loop::EventLoop;
 use winit::window::{Window, WindowBuilder};
 
+pub mod ui;
+
 struct App {
     window: Window,
     size: PhysicalSize<u32>,
@@ -16,6 +18,7 @@ struct App {
     egui_state: egui_winit::State,
     egui_ctx: egui::Context,
     egui_renderer: EguiRenderer,
+    ui: ui::UserInterface,
 }
 
 impl App {
@@ -70,6 +73,8 @@ impl App {
         let egui_ctx = egui::Context::default();
         let egui_renderer = EguiRenderer::new(&device, format, None, 1);
 
+        let ui = ui::UserInterface::new();
+
         Self {
             window,
             size,
@@ -80,6 +85,7 @@ impl App {
             egui_state,
             egui_ctx,
             egui_renderer,
+            ui,
         }
     }
 
@@ -110,11 +116,7 @@ impl App {
         };
 
         let raw_input = self.egui_state.take_egui_input(&self.window);
-        let output = self.egui_ctx.run(raw_input, |ctx| {
-            egui::CentralPanel::default().show(&ctx, |ui| {
-                ui.label("Hello, world!");
-            });
-        });
+        let output = self.egui_ctx.run(raw_input, |ctx| self.ui.show(ctx));
 
         self.egui_state.handle_platform_output(
             &self.window,
