@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 egui = "0.21"
+egui_dock = "0.4"
 egui-winit = "0.21"
 egui-wgpu = "0.21"
 pollster = "0.2"
