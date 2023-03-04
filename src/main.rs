@@ -161,6 +161,10 @@ impl App {
             ren.render(&mut rp, &meshes, &screen_desc);
         }
 
+        for id in output.textures_delta.free.iter() {
+            ren.free_texture(id);
+        }
+
         self.queue.submit(Some(cmds.finish())); // Option implements IntoIterator
         surface_texture.present();
     }
