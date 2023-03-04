@@ -10,3 +10,5 @@ egui-winit = "0.21"
 egui-wgpu = "0.21"
 pollster = "0.2"
 wgpu = "0.15"
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9.17"

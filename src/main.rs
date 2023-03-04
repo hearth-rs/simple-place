@@ -24,7 +24,7 @@ struct App {
 impl App {
     pub async fn new(event_loop: &EventLoop<()>) -> Self {
         let window = WindowBuilder::new()
-            .with_title("Tiled World Editor")
+            .with_title("Simple Place")
             .build(&event_loop)
             .unwrap();
 
