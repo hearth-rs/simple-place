@@ -27,11 +27,12 @@ macro_rules! define_conf {
         
         impl $StructName {
             pub fn save(&self, to:&std::path::Path)-> Result<(), std::io::Error> {
-                let ym = serde_yaml::Mapping::from_iter([$((
-                    serde_yaml::to_value(stringify!($member_name).replace("_", " ")).unwrap(),
-                    serde_yaml::to_value(&self.$member_name).unwrap()
-                )),*].into_iter());
-                std::fs::write(to, serde_yaml::to_string(&ym).unwrap())
+                // names with spaces are a bit nicer 
+                // let ym = serde_yaml::Mapping::from_iter([$((
+                //     serde_yaml::to_value(stringify!($member_name).replace("_", " ")).unwrap(),
+                //     serde_yaml::to_value(&self.$member_name).unwrap()
+                // )),*].into_iter());
+                std::fs::write(to, serde_yaml::to_string(&self).unwrap())
             }
             pub fn load(from:&std::path::Path)-> Result<Self, Box<dyn std::error::Error>> {
                 let ry:serde_yaml::Value = serde_yaml::from_reader(std::io::BufReader::new(std::fs::File::open(from)?))?;
