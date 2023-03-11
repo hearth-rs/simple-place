@@ -201,6 +201,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "btreemultimap"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aba7eaea18547dd4915e745859622e5f796e5b08f5d594735ed0e08d051f97ca"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "bumpalo"
 version = "3.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -884,6 +893,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "multimap"
+version = "0.8.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e5ce46fe64a9d73be07dcbe690a38ce1b293be448fd8ce1e6c1b8062c9f72c6a"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "naga"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1333,6 +1351,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "simple-place"
+version = "0.1.0"
+dependencies = [
+ "btreemultimap",
+ "egui",
+ "egui-wgpu",
+ "egui-winit",
+ "egui_dock",
+ "multimap",
+ "pollster",
+ "serde",
+ "serde_yaml",
+ "wgpu",
+]
+
+[[package]]
 name = "slotmap"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1442,20 +1476,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "tiled-world-editor"
-version = "0.1.0"
-dependencies = [
- "egui",
- "egui-wgpu",
- "egui-winit",
- "egui_dock",
- "pollster",
- "serde",
- "serde_yaml",
- "wgpu",
 ]
 
 [[package]]

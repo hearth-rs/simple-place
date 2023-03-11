@@ -1,6 +1,7 @@
 name: basic structure
 tilesheets:
-  - filename: default tiles.png
+  - key: 0
+    filename: default tiles.png
     tile span: 8
 background:
   color: "#000000"
@@ -14,17 +15,16 @@ grids:
       #coordinate system is x,y,z where z is up
       #this describes a 2 by 2 stone table that the user will see in front of them
       - 0,0,0
-      - 0,-1,0
+      - 0,0,-1
       - -1,0,0
-      - -1,-1,0
+      - -1,0,-1
     graphical:
         #this will describe the top surface of the further block on the right
-        #from the first listed tilesheet
       - from: 0
         #the 14th tile from the left, the second row from the bottom
         tile: 17,1
         #placed in this voxel
-        at: 0,0,1
+        at: 0,1,0
         #a normal pointing in the direction the tile emits outwards in
         #this could be expressed in a more compressed way but meh, use a binary format if you want that
         facing: 0,0,1
@@ -32,17 +32,17 @@ grids:
         rotation: 0
       - from: 0
         tile: 18,1
-        at: -1,0,1
+        at: -1,1,0
         facing: 0,0,1
         rotation: 0
       - from: 0
         tile: 17,1
-        at: -1,-1,1
+        at: -1,1,-1
         facing: 0,0,1
         rotation: 0
       - from: 0
         tile: 18,1
-        at: 0,-1,1
+        at: 0,1,-1
         facing: 0,0,1
         rotation: 1
       #I can't be bothered hand-writing the side graphics, this should be enough

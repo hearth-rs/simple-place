@@ -12,3 +12,6 @@ pollster = "0.2"
 wgpu = "0.15"
 serde = { version = "1.0", features = ["derive"] }
 serde_yaml = "0.9.17"
+# conf-gen = { path = ".conf-gen/" }
+multimap = "0.8.3"
+btreemultimap = "0.1.0"
